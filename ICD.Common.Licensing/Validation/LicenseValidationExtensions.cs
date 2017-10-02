@@ -84,7 +84,13 @@ namespace Portable.Licensing.Validation
 			validator.Validate =
 				license =>
 				assemblies.All (
-					asm => asm.GetCustomAttributes (typeof(AssemblyBuildDateAttribute), false).Cast<AssemblyBuildDateAttribute> ().All (a => a.BuildDate < license.Expiration));
+					asm => asm
+#if SIMPLSHARP
+					.GetCustomAttributes (typeof(AssemblyBuildDateAttribute), false)
+#else
+					.GetCustomAttributes (typeof(AssemblyBuildDateAttribute))
+#endif
+					.Cast<AssemblyBuildDateAttribute> ().All (a => a.BuildDate < license.Expiration));
 
 			validator.FailureResult = new LicenseExpiredValidationFailure ()
 				{
