@@ -91,6 +91,12 @@
     <Compile Include="Validation\ValidationChainBuilder.cs" />
     <None Include="Properties\ControlSystem.cfg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ICD.Common.BouncyCastle\ICD.Common.BouncyCastle\ICD.Common.BouncyCastle_SimplSharp.csproj">
+      <Project>{470A64CF-56B3-463F-88D0-500E6B2D617A}</Project>
+      <Name>ICD.Common.BouncyCastle_SimplSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
