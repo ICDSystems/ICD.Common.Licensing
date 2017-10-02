@@ -1,4 +1,4 @@
-﻿using System.Resources;
+﻿using System.Reflection;
 
 [assembly: AssemblyTitle("ICD.Common.Licensing")]
 [assembly: AssemblyCompany("ICD Systems")]
