@@ -45,7 +45,15 @@
     <DefineConstants>SIMPLSHARP;</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICD.Common.BouncyCastle_SimplSharp, Version=1.0.0.16945, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\ICD.Common.BouncyCastle_SimplSharp.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
+    <Reference Include="SimplSharpCryptographyInterface, Version=1.0.6197.21123, Culture=neutral, PublicKeyToken=1099c178b3b54c3b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ProgramData\Crestron\SDK\SimplSharpCryptographyInterface.dll</HintPath>
+    </Reference>
     <Reference Include="SimplSharpCustomAttributesInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1099c178b3b54c3b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\Crestron\SDK\SimplSharpCustomAttributesInterface.dll</HintPath>
@@ -91,12 +99,6 @@
     <Compile Include="Validation\LicenseValidator.cs" />
     <Compile Include="Validation\ValidationChainBuilder.cs" />
     <None Include="Properties\ControlSystem.cfg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ICD.Common.BouncyCastle\ICD.Common.BouncyCastle\ICD.Common.BouncyCastle_SimplSharp.csproj">
-      <Project>{470A64CF-56B3-463F-88D0-500E6B2D617A}</Project>
-      <Name>ICD.Common.BouncyCastle_SimplSharp</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>
