@@ -15,6 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="References\**" />
+    <Compile Remove="SIMPLSharpLogs\**" />
+    <EmbeddedResource Remove="References\**" />
+    <EmbeddedResource Remove="SIMPLSharpLogs\**" />
+    <None Remove="References\**" />
+    <None Remove="SIMPLSharpLogs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ObfuscationSettings.cs" />
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
@@ -29,7 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ICD.Common.BouncyCastle\ICD.Common.BouncyCastle\ICD.Common.BouncyCastle_NetStandard.csproj" />
+    <Reference Include="ICD.Common.BouncyCastle_NetStandard">
+      <HintPath>References\ICD.Common.BouncyCastle_NetStandard.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

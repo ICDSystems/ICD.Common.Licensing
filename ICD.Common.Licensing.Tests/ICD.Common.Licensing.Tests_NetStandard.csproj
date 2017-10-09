@@ -23,6 +23,12 @@
   <ItemGroup>
     <ProjectReference Include="..\ICD.Common.Licensing\ICD.Common.Licensing_NetStandard.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="ICD.Common.BouncyCastle_NetStandard">
+      <HintPath>..\ICD.Common.Licensing\References\ICD.Common.BouncyCastle_NetStandard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
