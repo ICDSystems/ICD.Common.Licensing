@@ -1,5 +1,4 @@
-﻿#if DEBUG && !DEBUG_RELEASE
-//
+﻿//
 // Copyright © 2012 - 2013 Nauck IT KG     http://www.nauck-it.de
 // Copyright © 2017 Nivloc Enterprises Ltd
 //
@@ -189,4 +188,3 @@ namespace Portable.Licensing
 			}
 		}
 	}
-#endif

@@ -76,16 +76,11 @@ namespace Portable.Licensing
 		public Guid Id
 			{
 			get { return new Guid (GetTag ("Id") ?? Guid.Empty.ToString ()); }
-#if DEBUG && !DEBUG_RELEASE
-#if RO
-			internal
-#endif
 			set
 				{
 				if (!IsSigned)
 					SetTag ("Id", value.ToString ());
 				}
-#endif
 			}
 
 		/// <summary>
@@ -94,16 +89,11 @@ namespace Portable.Licensing
 		public LicenseType Type
 			{
 			get { return (LicenseType)Enum.Parse (typeof(LicenseType), GetTag ("Type") ?? LicenseType.Trial.ToString (), false); }
-#if DEBUG && !DEBUG_RELEASE
-#if RO
-			internal
-#endif
 			set
 				{
 				if (!IsSigned)
 					SetTag ("Type", value.ToString ());
 				}
-#endif
 			}
 
 		/// <summary>
@@ -113,16 +103,11 @@ namespace Portable.Licensing
 		public int Quantity
 			{
 			get { return int.Parse (GetTag ("Quantity") ?? "0"); }
-#if DEBUG && !DEBUG_RELEASE
-#if RO
-			internal
-#endif
 			set
 				{
 				if (!IsSigned)
 					SetTag ("Quantity", value.ToString ());
 				}
-#endif
 			}
 
 		/// <summary>
@@ -200,16 +185,11 @@ namespace Portable.Licensing
 				return DateTime.ParseExact (GetTag ("Expiration") ?? DateTime.MaxValue.ToUniversalTime ().ToString ("r", CultureInfo.InvariantCulture), "r",
 					CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal);
 				}
-#if DEBUG && !DEBUG_RELEASE
-#if RO
-			internal
-#endif
 			set
 				{
 				if (!IsSigned)
 					SetTag ("Expiration", value.ToUniversalTime ().ToString ("r", CultureInfo.InvariantCulture));
 				}
-#endif
 			}
 
 		/// <summary>
@@ -221,18 +201,12 @@ namespace Portable.Licensing
 			get { return GetTag ("Signature"); }
 			}
 
-#if DEBUG && !DEBUG_RELEASE
 		/// <summary>
 		/// Compute a signature and sign this <see cref="License"/> with the provided key.
 		/// </summary>
 		/// <param name="privateKey">The private key in xml string format to compute the signature.</param>
 		/// <param name="passPhrase">The pass phrase to decrypt the private key.</param>
-#if RO
-		internal
-#else
-		public
-#endif
-			void Sign (string privateKey, string passPhrase)
+		public void Sign (string privateKey, string passPhrase)
 			{
 			var signTag = xmlData.Element ("Signature") ?? new XElement ("Signature");
 
@@ -255,7 +229,6 @@ namespace Portable.Licensing
 				xmlData.Add (signTag);
 				}
 			}
-#endif
 
 		/// <summary>
 		/// Determines whether the <see cref="License.Signature"/> property verifies for the specified key.
@@ -288,24 +261,17 @@ namespace Portable.Licensing
 				}
 			}
 
-#if DEBUG && !DEBUG_RELEASE
-		/// <summary>
-		/// Create a new <see cref="License"/> using the <see cref="ILicenseBuilder"/>
-		/// fluent api.
-		/// </summary>
-		/// <returns>An instance of the <see cref="ILicenseBuilder"/> class.</returns>
-#if RO
-			internal
-#else
-			public
-#endif
-				static ILicenseBuilder New ()
+			/// <summary>
+			/// Create a new <see cref="License"/> using the <see cref="ILicenseBuilder"/>
+			/// fluent api.
+			/// </summary>
+			/// <returns>An instance of the <see cref="ILicenseBuilder"/> class.</returns>
+			public static ILicenseBuilder New()
 			{
-			return new LicenseBuilder ();
+				return new LicenseBuilder();
 			}
-#endif
 
-		/// <summary>
+			/// <summary>
 		/// Loads a <see cref="License"/> from a string that contains XML.
 		/// </summary>
 		/// <param name="xmlString">A <see cref="string"/> that contains XML.</param>
@@ -428,7 +394,6 @@ namespace Portable.Licensing
 			get { return (!string.IsNullOrEmpty (Signature)); }
 			}
 
-#if DEBUG && !DEBUG_RELEASE
 		private void SetTag (string name, string value)
 			{
 			var element = xmlData.Element (name);
@@ -442,7 +407,6 @@ namespace Portable.Licensing
 			if (value != null)
 				element.Value = value;
 			}
-#endif
 
 		private string GetTag (string name)
 			{
