@@ -39,9 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ICD.Common.BouncyCastle_NetStandard">
-      <HintPath>References\ICD.Common.BouncyCastle_NetStandard.dll</HintPath>
-    </Reference>
+    <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
