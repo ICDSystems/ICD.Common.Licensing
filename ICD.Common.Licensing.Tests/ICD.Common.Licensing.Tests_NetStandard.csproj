@@ -17,6 +17,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="NUnit" Version="3.8.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.8.0" />
@@ -24,12 +25,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\ICD.Common.Licensing\ICD.Common.Licensing_NetStandard.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Reference Include="ICD.Common.BouncyCastle_NetStandard">
-      <HintPath>..\ICD.Common.Licensing\References\ICD.Common.BouncyCastle_NetStandard.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>
