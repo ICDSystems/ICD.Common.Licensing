@@ -40,7 +40,7 @@ namespace ICD.Common.Licensing
 		/// <param name="xmlData">The initial content of this <see cref="License"/>.</param>
 		internal License(XElement xmlData)
 		{
-			this.m_XmlData = xmlData;
+			m_XmlData = xmlData;
 		}
 
 		/// <summary>
