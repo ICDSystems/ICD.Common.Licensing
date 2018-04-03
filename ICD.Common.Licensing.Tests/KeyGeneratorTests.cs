@@ -24,10 +24,10 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System.Collections.Generic;
+using ICD.Common.Licensing.Security.Cryptography;
 using NUnit.Framework;
-using Portable.Licensing.Security.Cryptography;
 
-namespace Portable.Licensing.Tests
+namespace ICD.Common.Licensing.Tests
 {
     [TestFixture]
     public class KeyGeneratorTests

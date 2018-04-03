@@ -23,15 +23,11 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ICD.Common.Licensing.Validation;
 using NUnit.Framework;
-using Portable.Licensing.Validation;
 
-namespace Portable.Licensing.Tests
+namespace ICD.Common.Licensing.Tests
 {
     [TestFixture]
     public class LicenseValidationTests
