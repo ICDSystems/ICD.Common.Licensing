@@ -70,7 +70,7 @@ namespace ICD.Common.Licensing.Tests
 
             // validate default values when not set
             Assert.That(license.Id, Is.EqualTo(Guid.Empty));
-            Assert.That(license.Type, Is.EqualTo(LicenseType.Trial));
+            Assert.That(license.Type, Is.EqualTo(eLicenseType.Trial));
             Assert.That(license.Quantity, Is.EqualTo(0));
             Assert.That(license.ProductFeatures, Is.Null);
             Assert.That(license.Customer, Is.Null);
@@ -96,7 +96,7 @@ namespace ICD.Common.Licensing.Tests
 
             var license = License.New()
                                  .WithUniqueIdentifier(licenseId)
-                                 .As(LicenseType.Standard)
+                                 .As(eLicenseType.Standard)
                                  .WithMaximumUtilization(10)
                                  .WithProductFeatures(productFeatures)
                                  .LicensedTo(customerName, customerEmail)
@@ -112,7 +112,7 @@ namespace ICD.Common.Licensing.Tests
 
             // validate default values when not set
             Assert.That(license.Id, Is.EqualTo(licenseId));
-            Assert.That(license.Type, Is.EqualTo(LicenseType.Standard));
+            Assert.That(license.Type, Is.EqualTo(eLicenseType.Standard));
             Assert.That(license.Quantity, Is.EqualTo(10));
             Assert.That(license.ProductFeatures, Is.Not.Null);
             Assert.That(license.ProductFeatures.GetAll(), Is.EquivalentTo(productFeatures));
@@ -141,7 +141,7 @@ namespace ICD.Common.Licensing.Tests
 
             var license = License.New()
                                  .WithUniqueIdentifier(licenseId)
-                                 .As(LicenseType.Standard)
+                                 .As(eLicenseType.Standard)
                                  .WithMaximumUtilization(10)
                                  .WithProductFeatures(productFeatures)
                                  .LicensedTo(customerName, customerEmail)
@@ -167,7 +167,7 @@ namespace ICD.Common.Licensing.Tests
 
             // validate default values when not set
             Assert.That(hackedLicense.Id, Is.EqualTo(licenseId));
-            Assert.That(hackedLicense.Type, Is.EqualTo(LicenseType.Standard));
+            Assert.That(hackedLicense.Type, Is.EqualTo(eLicenseType.Standard));
             Assert.That(hackedLicense.Quantity, Is.EqualTo(11)); // now with 10+1 licenses
             Assert.That(hackedLicense.ProductFeatures, Is.Not.Null);
             Assert.That(hackedLicense.ProductFeatures.GetAll(), Is.EquivalentTo(productFeatures));
