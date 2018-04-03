@@ -29,7 +29,7 @@ using System.Globalization;
 using System.Xml.Linq;
 using NUnit.Framework;
 
-namespace Portable.Licensing.Tests
+namespace ICD.Common.Licensing.Tests
 {
     [TestFixture]
     public class LicenseSignatureTests
