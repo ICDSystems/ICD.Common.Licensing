@@ -28,6 +28,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 #if SIMPLSHARP
 using Crestron.SimplSharp.Reflection;
@@ -59,11 +60,19 @@ namespace ICD.Common.Licensing.Validation
 		/// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
 		public static IValidationChain ExpirationDate(this IStartValidationChain validationChain)
 		{
+			if (validationChain == null)
+				throw new ArgumentNullException("validationChain");
+
 			var validationChainBuilder = (validationChain as ValidationChainBuilder);
+
+			if (validationChainBuilder == null)
+				throw new ArgumentException(string.Format("Validation chain is not a {0}", typeof(ValidationChainBuilder)),
+											"validationChain");
+
 			var validator = validationChainBuilder.StartValidatorChain();
 			validator.Validate = license => license.Expiration > DateTime.Now;
 
-			validator.FailureResult = new LicenseExpiredValidationFailure()
+			validator.FailureResult = new LicenseExpiredValidationFailure
 			{
 				Message = "Licensing for this product has expired!",
 				HowToResolve = @"Your license is expired. Please contact your distributor/vendor to renew the license."
@@ -79,22 +88,30 @@ namespace ICD.Common.Licensing.Validation
 		/// <param name="validationChain">The current <see cref="IStartValidationChain"/>.</param>
 		/// <param name="assemblies">The list of assemblies to check.</param>
 		/// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
-		public static IValidationChain ProductBuildDate(this IStartValidationChain validationChain, Assembly[] assemblies)
+		public static IValidationChain ProductBuildDate(this IStartValidationChain validationChain, IEnumerable<Assembly> assemblies)
 		{
+			if (validationChain == null)
+				throw new ArgumentNullException("validationChain");
+
 			var validationChainBuilder = (validationChain as ValidationChainBuilder);
+
+			if (validationChainBuilder == null)
+				throw new ArgumentException(string.Format("Validation chain is not a {0}", typeof(ValidationChainBuilder)),
+											"validationChain");
+
 			var validator = validationChainBuilder.StartValidatorChain();
 			validator.Validate =
 				license =>
-				assemblies.All(
-				               asm => asm
+				assemblies.All(asm => asm
 #if SIMPLSHARP
 					                      .GetCustomAttributes(typeof(AssemblyBuildDateAttribute), false)
 #else
-					.GetCustomAttributes (typeof(AssemblyBuildDateAttribute))
+					                      .GetCustomAttributes (typeof(AssemblyBuildDateAttribute))
 #endif
-					                      .Cast<AssemblyBuildDateAttribute>().All(a => a.BuildDate < license.Expiration));
+					                      .Cast<AssemblyBuildDateAttribute>()
+					                      .All(a => a.BuildDate < license.Expiration));
 
-			validator.FailureResult = new LicenseExpiredValidationFailure()
+			validator.FailureResult = new LicenseExpiredValidationFailure
 			{
 				Message = "Licensing for this product has expired!",
 				HowToResolve = @"Your license is expired. Please contact your distributor/vendor to renew the license."
@@ -113,7 +130,15 @@ namespace ICD.Common.Licensing.Validation
 		public static IValidationChain AssertThat(this IStartValidationChain validationChain, Predicate<License> predicate,
 		                                          IValidationFailure failure)
 		{
+			if (validationChain == null)
+				throw new ArgumentNullException("validationChain");
+
 			var validationChainBuilder = (validationChain as ValidationChainBuilder);
+
+			if (validationChainBuilder == null)
+				throw new ArgumentException(string.Format("Validation chain is not a {0}", typeof(ValidationChainBuilder)),
+				                            "validationChain");
+
 			var validator = validationChainBuilder.StartValidatorChain();
 
 			validator.Validate = predicate;
@@ -130,11 +155,19 @@ namespace ICD.Common.Licensing.Validation
 		/// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
 		public static IValidationChain Signature(this IStartValidationChain validationChain, string publicKey)
 		{
+			if (validationChain == null)
+				throw new ArgumentNullException("validationChain");
+
 			var validationChainBuilder = (validationChain as ValidationChainBuilder);
+
+			if (validationChainBuilder == null)
+				throw new ArgumentException(string.Format("Validation chain is not a {0}", typeof(ValidationChainBuilder)),
+											"validationChain");
+
 			var validator = validationChainBuilder.StartValidatorChain();
 			validator.Validate = license => license.VerifySignature(publicKey);
 
-			validator.FailureResult = new InvalidSignatureValidationFailure()
+			validator.FailureResult = new InvalidSignatureValidationFailure
 			{
 				Message = "License signature validation error!",
 				HowToResolve =
