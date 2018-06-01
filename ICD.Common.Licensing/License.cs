@@ -222,7 +222,7 @@ namespace ICD.Common.Licensing
 
 				var privKey = KeyFactory.FromEncryptedPrivateKeyString(privateKey, passPhrase);
 
-				var documentToSign = Encoding.UTF8.GetBytes(m_XmlData.ToString(SaveOptions.DisableFormatting));
+				var documentToSign = new UTF8Encoding(false).GetBytes(m_XmlData.ToString(SaveOptions.DisableFormatting));
 				var signer = SignerUtilities.GetSigner(m_SignatureAlgorithm);
 				signer.Init(true, privKey);
 				signer.BlockUpdate(documentToSign, 0, documentToSign.Length);
@@ -253,7 +253,7 @@ namespace ICD.Common.Licensing
 
 				var pubKey = KeyFactory.FromPublicKeyString(publicKey);
 
-				var documentToSign = Encoding.UTF8.GetBytes(m_XmlData.ToString(SaveOptions.DisableFormatting));
+				var documentToSign = new UTF8Encoding(false).GetBytes(m_XmlData.ToString(SaveOptions.DisableFormatting));
 				var signer = SignerUtilities.GetSigner(m_SignatureAlgorithm);
 				signer.Init(false, pubKey);
 				signer.BlockUpdate(documentToSign, 0, documentToSign.Length);
