@@ -342,7 +342,8 @@ namespace ICD.Common.Licensing
 #if SIMPLSHARP
 			m_XmlData.Save(new XmlWriter(stream));
 #else
-			m_XmlData.Save(stream);
+            using (var writer = new StreamWriter(stream, new UTF8Encoding(false)))
+			    m_XmlData.Save(writer);
 #endif
 		}
 
