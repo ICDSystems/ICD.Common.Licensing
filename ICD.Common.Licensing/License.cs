@@ -326,8 +326,7 @@ namespace ICD.Common.Licensing
 		{
 			return new License(XElement.Load(reader, LoadOptions.None));
 		}
-
-#if DEBUG && !DEBUG_RELEASE
+        
 		/// <summary>
 		/// Serialize this <see cref="License"/> to a <see cref="Stream"/>.
 		/// </summary>
@@ -343,7 +342,8 @@ namespace ICD.Common.Licensing
 #if SIMPLSHARP
 			m_XmlData.Save(new XmlWriter(stream));
 #else
-			m_XmlData.Save(stream);
+            using (var writer = new StreamWriter(stream, new UTF8Encoding(false)))
+			    m_XmlData.Save(writer);
 #endif
 		}
 
@@ -380,7 +380,6 @@ namespace ICD.Common.Licensing
 		{
 			m_XmlData.Save(xmlWriter);
 		}
-#endif
 
 		/// <summary>
 		/// Returns the indented XML for this <see cref="License"/>.
