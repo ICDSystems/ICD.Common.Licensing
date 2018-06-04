@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.1.0] - 2018-04-27
+### Changed
+ - Encoding license files to UTF8 without BOM characters
+
 ## [3.0.0] - 2018-04-27
 ### Changed
  - Removed suffix from assembly names
