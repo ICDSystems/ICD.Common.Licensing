@@ -6,7 +6,7 @@
 	<RootNamespace>ICD.Common.Licensing.Tests</RootNamespace>
 	<AssemblyName>ICD.Common.Licensing.Tests</AssemblyName>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-	<Deterministic>false</Deterministic>
+	<Deterministic>true</Deterministic>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
