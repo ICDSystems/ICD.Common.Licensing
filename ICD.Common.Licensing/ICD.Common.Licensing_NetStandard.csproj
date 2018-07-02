@@ -41,7 +41,5 @@
   <ItemGroup>
     <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>REM Eazfuscator.NET is integrated with this project at MSBuild level: https://www.gapotchenko.com/eazfuscator.net/kb/100036</PostBuildEvent>
-  </PropertyGroup>
+
 </Project>
