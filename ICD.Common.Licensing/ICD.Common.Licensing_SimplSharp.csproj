@@ -82,7 +82,7 @@
     <Compile Include="LicenseAttributes.cs" />
     <Compile Include="LicenseBuilder.cs" />
     <Compile Include="LicenseType.cs" />
-    <None Include="ObfuscationSettings.cs" />
+    <Compile Include="ObfuscationSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Cryptography\KeyFactory.cs" />
     <Compile Include="Security\Cryptography\KeyGenerator.cs" />
@@ -102,6 +102,12 @@
     <Compile Include="Validation\LicenseValidator.cs" />
     <Compile Include="Validation\ValidationChainBuilder.cs" />
     <None Include="Properties\ControlSystem.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ICD.Common.Utils\ICD.Common.Utils\ICD.Common.Utils_SimplSharp.csproj">
+      <Project>{CB4055C6-D59E-479E-9C56-2C92335A7D9A}</Project>
+      <Name>ICD.Common.Utils_SimplSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

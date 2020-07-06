@@ -28,9 +28,6 @@
     <None Remove="SIMPLSharpLogs\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="ObfuscationSettings.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="ICD.Common.projectinfo" />
     <None Remove="Properties\ControlSystem.cfg" />
   </ItemGroup>
@@ -40,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ICD.Common.Utils\ICD.Common.Utils\ICD.Common.Utils_NetStandard.csproj" />
   </ItemGroup>
 
 </Project>
