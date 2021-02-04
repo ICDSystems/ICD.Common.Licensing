@@ -11,6 +11,7 @@
     <EazfuscatorIntegration>MSBuild</EazfuscatorIntegration>
     <EazfuscatorActiveConfiguration>Release</EazfuscatorActiveConfiguration>
     <EazfuscatorCompatibilityVersion>2018.2</EazfuscatorCompatibilityVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;STANDARD</DefineConstants>
