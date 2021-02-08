@@ -39,8 +39,5 @@
   <ItemGroup>
     <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ICD.Common.Utils\ICD.Common.Utils\ICD.Common.Utils_NetStandard.csproj" />
-  </ItemGroup>
 
 </Project>
