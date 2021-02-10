@@ -17,6 +17,11 @@
     <OutputPath>binNetCoreApp\$(Configuration)\</OutputPath>
     <DefineConstants>TRACE;STANDARD</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="binNetCoreApp\**" />
+    <EmbeddedResource Remove="binNetCoreApp\**" />
+    <None Remove="binNetCoreApp\**" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />

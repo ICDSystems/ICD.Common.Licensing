@@ -21,10 +21,13 @@
     <DefineConstants>TRACE;STANDARD</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="binNetCoreApp\**" />
     <Compile Remove="References\**" />
     <Compile Remove="SIMPLSharpLogs\**" />
+    <EmbeddedResource Remove="binNetCoreApp\**" />
     <EmbeddedResource Remove="References\**" />
     <EmbeddedResource Remove="SIMPLSharpLogs\**" />
+    <None Remove="binNetCoreApp\**" />
     <None Remove="References\**" />
     <None Remove="SIMPLSharpLogs\**" />
   </ItemGroup>
