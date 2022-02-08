@@ -48,9 +48,9 @@
     <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICD.Common.BouncyCastle_SimplSharp, Version=1.0.0.16945, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ICD.Common.BouncyCastle, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>References\ICD.Common.BouncyCastle_SimplSharp.dll</HintPath>
+      <HintPath>References\ICD.Common.BouncyCastle.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="SimplSharpCryptographyInterface, Version=1.0.6197.21123, Culture=neutral, PublicKeyToken=1099c178b3b54c3b, processorArchitecture=MSIL">
