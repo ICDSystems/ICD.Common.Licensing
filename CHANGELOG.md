@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
  - Updated Dependencies
 
+## [3.1.2] - 2022-02-08
+### Changed
+ - Updating BouncyCastle reference
+
 ## [3.1.1] - 2018-10-04
 ### Added
  - Added obfuscation
