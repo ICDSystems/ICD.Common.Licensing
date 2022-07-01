@@ -39,9 +39,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Condition="'$(TargetFramework)' == 'net472'" Include="Crestron.SimplSharp.SDK.Library" Version="2.17.69" />
-  </ItemGroup>
-  <ItemGroup>
+    <PackageReference Condition="'$(TargetFramework)' == 'net472'" Include="Crestron.SimplSharp.SDK.Library" Version="2.18.96" />
     <PackageReference Include="ICD.Common.BouncyCastle_NetStandard" Version="1.0.0" />
   </ItemGroup>
 </Project>
