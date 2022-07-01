@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.0.1] - 2022-07-01
+### Changed
+ - Updated Dependencies
+ - Updated NetStandard.csproj
+
 ## [4.0.0] - 2021-08-18
 ### Changed
  - Updated Dependencies
